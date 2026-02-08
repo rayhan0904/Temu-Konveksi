@@ -1,0 +1,75 @@
+/* CSS Kustom */
+
+/* Floating WhatsApp Button */
+.whatsapp-float-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #10B981; /* green-500 */
+    color: white;
+    padding: 16px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.15s ease-in-out;
+    z-index: 50;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+.whatsapp-float-button:hover {
+    background-color: #059669; /* green-600 */
+}
+.whatsapp-icon {
+    font-size: 24px; 
+    line-height: 1;
+}
+
+/* Custom styles for dialog/modal (product.html) */
+.dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Sedikit lebih gelap */
+    z-index: 50;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.dialog-content {
+    background-color: #1F2937; /* Gray-800 - Latar belakang modal yang gelap elegan */
+    color: #F9FAFB; /* Teks putih terang untuk kontras */
+    border-radius: 0.5rem;
+    max-width: 42rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 60;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.2s ease-out;
+}
+.dialog-open .dialog-backdrop {
+    display: flex;
+}
+.dialog-open .dialog-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Carousel and Icons */
+.carousel-slide {
+    transition: transform 500ms ease-in-out;
+}
+.icon-chevron-left, .icon-chevron-right {
+    width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Hamburger Menu lines (for rotation) */
+.top-line, .middle-line, .bottom-line {
+    transition: all 300ms;
+}

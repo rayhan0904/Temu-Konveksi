@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temu Konveksi - Solusi Konveksi Terpercaya</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Warna aksen: Emas/Kuning Pucat (FCD34D = amber-300)
+                        primary: '#FCD34D', 
+                        // Warna latar belakang utama: Abu-abu gelap (111827 = gray-900)
+                        background: '#111827', 
+                        // Warna teks/kontras: Putih terang (F9FAFB = gray-50)
+                        secondary: '#F9FAFB', 
+                    },
+                },
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pt-16 antialiased bg-background text-secondary">
+
+    <div id="mobile-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"></div>
+
+    <nav id="main-nav" class="bg-gray-800 shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#dashboard" data-section-id="dashboard" id="logo-link" class="flex items-center space-x-2 hover:opacity-80 transition-opacity"> 
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-background w-5 h-5"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><path d="M12 10h4"></path><path d="M8 10h4"></path><path d="M2 10h6"></path><path d="M16 10h6"></path><path d="M12 20h4"></path><path d="M8 20h4"></path><path d="M2 20h6"></path><path d="M16 20h6"></path></svg>
+                        </div>
+                        <h1 class="hidden sm:block text-xl font-bold text-primary">Temu Konveksi</h1>
+                        <h1 class="sm:hidden text-lg font-bold text-primary">TK</h1>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex space-x-1">
+                    <button data-section-id="dashboard" data-label="Dashboard" class="nav-link desktop-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"></path><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                        <span>Dashboard</span>
+                    </button>
+                    
+                    <button data-section-id="tentang" data-label="Tentang" class="nav-link desktop-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                        <span>Tentang</span>
+                    </button>
+                    
+                    <button data-section-id="product" data-label="Product" class="nav-link desktop-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><path d="M12 10h4"></path><path d="M8 10h4"></path><path d="M2 10h6"></path><path d="M16 10h6"></path><path d="M12 20h4"></path><path d="M8 20h4"></path><path d="M2 20h6"></path><path d="M16 20h6"></path></svg>
+                        <span>Product</span>
+                    </button>
+                    
+                    <button data-section-id="profile" data-label="Profile" class="nav-link desktop-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <span>Profile</span>
+                    </button>
+                    
+                    <button data-section-id="kontak" data-label="Kontak" class="nav-link desktop-link flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M22 16.92v3.08a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3 2h3.08a2 2 0 0 1 2 1.74 17.5 17.5 0 0 0 .5 2.18 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 17.5 17.5 0 0 0 2.18.5A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>Kontak</span>
+                    </button>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="relative w-10 h-10 flex items-center justify-center text-gray-300 hover:text-primary transition-colors rounded-lg hover:bg-gray-700" aria-label="Toggle menu" aria-expanded="false">
+                        <div class="relative w-6 h-6">
+                            <span class="hamburger-line top-line absolute top-1/2 left-1/2 w-5 h-0.5 bg-current transform transition-all duration-300 -translate-x-1/2 -translate-y-2"></span>
+                            <span class="hamburger-line middle-line absolute top-1/2 left-1/2 w-5 h-0.5 bg-current transform transition-all duration-300 -translate-x-1/2 -translate-y-1/2"></span>
+                            <span class="hamburger-line bottom-line absolute top-1/2 left-1/2 w-5 h-0.5 bg-current transform transition-all duration-300 -translate-x-1/2 translate-y-1"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu-dropdown" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                <div class="bg-gray-800 border-t border-gray-700 py-2">
+                    <div class="px-2 space-y-1" id="mobile-nav-items">
+                        <button data-section-id="dashboard" class="nav-link mobile-link flex items-center space-x-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"></path><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                            <span class="font-medium">Dashboard</span>
+                        </button>
+                        <button data-section-id="tentang" class="nav-link mobile-link flex items-center space-x-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                            <span class="font-medium">Tentang</span>
+                        </button>
+                        <button data-section-id="product" class="nav-link mobile-link flex items-center space-x-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><path d="M12 10h4"></path><path d="M8 10h4"></path><path d="M2 10h6"></path><path d="M16 10h6"></path><path d="M12 20h4"></path><path d="M8 20h4"></path><path d="M2 20h6"></path><path d="M16 20h6"></path></svg>
+                            <span class="font-medium">Product</span>
+                        </button>
+                        <button data-section-id="profile" class="nav-link mobile-link flex items-center space-x-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span class="font-medium">Profile</span>
+                        </button>
+                        <button data-section-id="kontak" class="nav-link mobile-link flex items-center space-x-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3.08a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3 2h3.08a2 2 0 0 1 2 1.74 17.5 17.5 0 0 0 .5 2.18 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 17.5 17.5 0 0 0 2.18.5A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span class="font-medium">Kontak</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section id="dashboard" class="min-h-screen bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary leading-tight">
+                            Temu Konveksi
+                        </h1>
+                        <h2 class="text-xl md:text-2xl text-gray-300">
+                            Solusi Terpercaya untuk Kebutuhan Konveksi Anda
+                        </h2>
+                        <p class="text-lg text-gray-400 leading-relaxed">
+                            Kami menyediakan berbagai produk konveksi berkualitas tinggi untuk 
+                            kebutuhan seragam, workwear, dan merchandise dengan pelayanan terbaik 
+                            dan harga kompetitif.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <button id="navigateToProductButton"
+                            class="bg-primary hover:bg-primary/90 text-background px-8 py-4 text-lg font-semibold rounded-lg shadow-lg transition duration-150 ease-in-out"
+                        >
+                            Lihat Product
+                        </button>
+                        <p class="text-sm text-gray-400">
+                            Jelajahi katalog lengkap produk konveksi kami
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 pt-8">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">10+</div>
+                            <div class="text-sm text-gray-300">Tahun Pengalaman</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">1000+</div>
+                            <div class="text-sm text-gray-300">Pelanggan Puas</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">20+</div>
+                            <div class="text-sm text-gray-300">Jenis Produk</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">24/7</div>
+                            <div class="text-sm text-gray-300">Customer Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:order-last">
+                    <div class="relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1759408174047-41e91a194daa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxjbG90aGluZyUyMGZhY3RvcnklMjB3b3JrZXJzfGVufDF8fHx8MTc1OTU2ODU1NXww&lib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                            alt="Temu Konveksi Factory"
+                            class="w-full h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-2xl"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-4">Layanan Kami</h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                        Kami menyediakan berbagai layanan konveksi untuk memenuhi kebutuhan Anda
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-background rounded-xl">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">👔</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Seragam Kerja</h3>
+                        <p class="text-gray-400">Seragam berkualitas untuk berbagai profesi dan instansi</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-background rounded-xl">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🎓</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Seragam Sekolah</h3>
+                        <p class="text-gray-400">Almamater dan seragam sekolah dengan kualitas terbaik</p>
+                    </div>
+
+                    <div class="text-center p-6 bg-background rounded-xl">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🛍️</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Merchandise</h3>
+                        <p class="text-gray-400">Kaos, tote bag, dan merchandise custom untuk event</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold text-secondary mb-4">Tentang Temu Konveksi</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Membangun kepercayaan melalui kualitas dan dedikasi dalam industri konveksi
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-secondary">Profil Perusahaan</h2>
+                    <div class="space-y-4 text-gray-400 leading-relaxed">
+                        <p>
+                            Temu Konveksi adalah perusahaan yang bergerak di bidang produksi pakaian dan tekstil 
+                            yang telah berpengalaman lebih dari 10 tahun. Kami mengkhususkan diri dalam pembuatan 
+                            berbagai jenis seragam, workwear, dan merchandise berkualitas tinggi.
+                        </p>
+                        <p>
+                            Dengan dukungan tim profesional dan teknologi modern, kami telah melayani ribuan 
+                            pelanggan dari berbagai sektor, mulai dari instansi pemerintah, perusahaan swasta, 
+                            sekolah, hingga organisasi dan event. Kepuasan pelanggan adalah prioritas utama kami.
+                        </p>
+                        <p>
+                            Kami memiliki fasilitas produksi yang lengkap dengan mesin-mesin modern untuk 
+                            menjamin kualitas produk. Tim desainer kami siap membantu mewujudkan ide dan 
+                            konsep Anda menjadi produk yang berkualitas dan sesuai dengan kebutuhan.
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <img
+                        src="https://images.unsplash.com/photo-1673201229733-69d19c5c4a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnYXJtZW50JTIwbWFudWZhY3R1cmluZ3xlbnwxfHx8fDE3NTk1Njg1NTV8MA&lib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                        alt="Garment Manufacturing"
+                        class="w-full h-auto object-cover rounded-2xl shadow-lg"
+                        id="company-image"
+                    />
+                </div>
+            </div>
+
+            <div class="bg-gray-800 rounded-2xl p-8 lg:p-12">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    
+                    <div class="space-y-6">
+                        <div class="text-center lg:text-left">
+                            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">🎯</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-secondary mb-4">Visi</h2>
+                        </div>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            Menjadi perusahaan konveksi terdepan di Indonesia yang dikenal karena 
+                            kualitas produk yang unggul, inovasi desain yang kreatif, dan pelayanan 
+                            yang profesional dalam memenuhi kebutuhan tekstil dan pakaian untuk 
+                            berbagai segmen pasar.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="text-center lg:text-left">
+                            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">🚀</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-secondary mb-4">Misi</h2>
+                        </div>
+                        <ul class="space-y-3 text-lg text-gray-300">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Menghasilkan produk konveksi berkualitas tinggi dengan standar internasional
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Memberikan pelayanan yang cepat, tepat, dan memuaskan kepada setiap pelanggan
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Mengembangkan inovasi desain dan teknologi produksi secara berkelanjutan
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Membangun kemitraan jangka panjang dengan pelanggan dan supplier
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-4">Mengapa Memilih Kami?</h2>
+                    <p class="text-lg text-gray-300">Keunggulan yang membuat kami berbeda</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">✨</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-white">Kualitas Terjamin</h3>
+                        <p class="text-gray-400">Menggunakan bahan berkualitas tinggi dan proses produksi yang ketat</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">⚡</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-white">Pengerjaan Cepat</h3>
+                        <p class="text-gray-400">Proses produksi yang efisien dengan timeline yang dapat diandalkan</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-white">Harga Kompetitif</h3>
+                        <p class="text-gray-400">Harga yang bersaing dengan kualitas yang tidak dikompromikan</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🤝</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-white">Pelayanan Prima</h3>
+                        <p class="text-gray-400">Customer service yang responsif dan siap membantu 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product" class="min-h-screen bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-secondary mb-4">Katalog Produk</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Jelajahi koleksi lengkap produk konveksi berkualitas tinggi dari Temu Konveksi
+                </p>
+            </div>
+
+            <div id="category-filter" class="flex flex-wrap justify-center gap-4 mb-12">
+                </div>
+
+            <div id="product-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                </div>
+        </div>
+
+        <div id="product-modal-backdrop" class="dialog-backdrop" onclick="closeModal()">
+            <div id="product-modal-content" class="dialog-content max-w-2xl" onclick="event.stopPropagation()">
+                </div>
+        </div>
+    </section>
+
+    <section id="profile" class="min-h-screen bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold text-secondary mb-4">Galeri Pelanggan</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Lihat hasil karya kami dan testimoni dari pelanggan yang telah mempercayai 
+                    Temu Konveksi untuk kebutuhan konveksi mereka
+                </p>
+            </div>
+
+            <div class="relative mb-16">
+                <div id="main-carousel" class="relative h-[500px] lg:h-[600px] overflow-hidden rounded-2xl bg-background">
+                    
+                    <div id="slide-1" class="carousel-slide absolute inset-0 transform translate-x-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1706381068085-29fe6c2afe51?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGN1c3RvbWVycyUyMHdlYXJpbmclMjB1bmlmb3JtfGVufDF8fHx8MTc1OTU2ODU1Nnww&lib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                            alt="Seragam Perusahaan"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Seragam Perusahaan</h3>
+                                <p class="text-lg opacity-90">Tim karyawan PT. Mandiri dengan seragam berkualitas tinggi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slide-2" class="carousel-slide absolute inset-0 transform translate-x-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1759408174047-41e91a194daa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxjbG90aGluZyUyMGZhY3RvcnklMjB3b3JrZXJzfGVufDF8fHx8MTc1OTU2ODU1NXww&lib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                            alt="Proses Produksi"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Proses Produksi</h3>
+                                <p class="text-lg opacity-90">Tim produksi kami bekerja dengan standar kualitas tinggi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slide-3" class="carousel-slide absolute inset-0 transform translate-x-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1673201229733-69d19c5c4a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxnYXJtZW50JTIwbWFudWZhY3R1cmluZ3xlbnwxfHx8fDE3NTk1Njg1NTV8MA&lib=rb-4.1.0&q=80&utm_source=figma&utm_medium=referral"
+                            alt="Fasilitas Modern"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Fasilitas Modern</h3>
+                                <p class="text-lg opacity-90">Fasilitas produksi dengan teknologi terkini</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slide-4" class="carousel-slide absolute inset-0 transform translate-x-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHx0LXNoaXJ0fGVufDF8fHx8MTc1OTU2ODU1Mnww&lib=rb-4.1.0&q=80&utm_source=figma&utm_medium=referral"
+                            alt="Produk Merchandise"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Produk Merchandise</h3>
+                                <p class="text-lg opacity-90">Kaos custom untuk event perusahaan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slide-5" class="carousel-slide absolute inset-0 transform translate-x-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1566827886031-7d0f1759568551fHx3a://images.unsplash.com/photo-1662309376159-b95fb193d96b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxzYWZldHklMjB2ZXN0fGVufDF8fHx8MTc1OTU2ODU1M3ww&lib=rb-4.1.0&q=80&utm_source=figma&utm_medium=referral"
+                            alt="Safety Equipment"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Safety Equipment</h3>
+                                <p class="text-lg opacity-90">Rompi safety untuk pekerja konstruksi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slide-7" class="carousel-slide absolute inset-0 transform translate-x-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHx0b3RlJTIwYmFnfGVufDF8fHx8MTc1OTU2ODU1NHww&lib=rb-4.1.0&q=80&utm_source=figma&utm_medium=referral"
+                            alt="Merchandise Event"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Merchandise Event</h3>
+                                <p class="text-lg opacity-90">Totebag custom untuk event dan seminar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="slide-8" class="carousel-slide absolute inset-0 transform translate-x-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1625910513413-c23b8bb81cba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxwb2xvJTIwc2hpcnR8ZW58MXx8fHwxNzU5NTY4NTUyfDA&lib=rb-4.1.0&q=80&utm_source=figma&utm_medium=referral"
+                            alt="Polo Shirt Tim"
+                            class="w-full h-full object-cover"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Polo Shirt Tim</h3>
+                                <p class="text-lg opacity-90">Polo shirt untuk tim olahraga perusahaan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button
+                    id="prev-slide"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition-all"
+                    aria-label="Previous Slide"
+                >
+                    <svg class="icon-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button
+                    id="next-slide"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition-all"
+                    aria-label="Next Slide"
+                >
+                    <svg class="icon-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                <div id="carousel-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                    </div>
+            </div>
+
+            <div id="thumbnail-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-16">
+                </div>
+
+            <div class="bg-background rounded-2xl p-8 lg:p-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-4">Testimoni Pelanggan</h2>
+                    <p class="text-lg text-gray-300">
+                        Kepuasan pelanggan adalah prioritas utama kami
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-900 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-xl">👤</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Budi Santoso</h4>
+                                <p class="text-sm text-gray-400">Manager PT. Mandiri</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">
+                            "Kualitas seragam sangat baik, jahitan rapi, dan harga sangat kompetitif. 
+                            Tim kami sangat puas dengan hasil akhirnya."
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-900 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-xl">👤</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Siti Aminah</h4>
+                                <p class="text-sm text-gray-400">HRD CV. Sukses</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">
+                            "Pelayanan sangat responsif dan pengerjaan sesuai deadline. 
+                            Pasti akan order lagi untuk kebutuhan seragam selanjutnya."
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-900 p-6 rounded-xl shadow-sm md:col-span-2 lg:col-span-1">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-xl">👤</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Ahmad Rizki</h4>
+                                <p class="text-sm text-gray-400">Event Organizer</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic">
+                            "Merchandise untuk event kami sangat memuaskan. 
+                            Sablon awet dan design sesuai ekspektasi. Recommended!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h2 class="text-3xl font-bold text-secondary mb-8">Pencapaian Kami</h2>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <div class="text-4xl font-bold text-primary mb-2">1000+</div>
+                        <div class="text-gray-300">Pelanggan Puas</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                        <div class="text-gray-300">Proyek Selesai</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                        <div class="text-gray-300">Tahun Pengalaman</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-primary mb-2">99%</div>
+                        <div class="text-gray-300">Tingkat Kepuasan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold text-secondary mb-4">Hubungi Kami</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Siap melayani kebutuhan konveksi Anda. Hubungi kami untuk konsultasi dan penawaran terbaik
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-secondary mb-6">Informasi Kontak</h2>
+                        
+                        <div class="space-y-4">
+                            <div id="whatsapp-card" class="flex items-center p-6 bg-gray-800 hover:bg-gray-700 rounded-xl cursor-pointer transition-colors group">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform text-white text-xl">
+                                    💬
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-white">WhatsApp</h3>
+                                    <p class="text-gray-300">+62 812-3456-789</p>
+                                    <p class="text-sm text-green-400">Klik untuk chat langsung</p>
+                                </div>
+                            </div>
+
+                            <div id="email-card" class="flex items-center p-6 bg-gray-800 hover:bg-gray-700 rounded-xl cursor-pointer transition-colors group">
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform text-white text-xl">
+                                    📧
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-white">Email</h3>
+                                    <p class="text-gray-300">info@temukonveksi.com</p>
+                                    <p class="text-sm text-blue-400">Klik untuk kirim email</p>
+                                </div>
+                            </div>
+
+                            <div id="instagram-card" class="flex items-center p-6 bg-gray-800 hover:bg-gray-700 rounded-xl cursor-pointer transition-colors group">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform text-background text-xl">
+                                    📸
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-white">Instagram</h3>
+                                    <p class="text-gray-300">@temukonveksi</p>
+                                    <p class="text-sm text-primary">Klik untuk follow</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center p-6 bg-gray-800 rounded-xl">
+                                <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4 text-white text-xl">
+                                    📞
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-white">Telepon</h3>
+                                    <p class="text-gray-300">(021) 1234-5678</p>
+                                    <p class="text-sm text-gray-400">Jam kerja: 08:00 - 17:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="text-primary mr-3 text-2xl">⏰</span>
+                            <h3 class="text-lg font-semibold text-white">Jam Operasional</h3>
+                        </div>
+                        <div class="space-y-2 text-gray-300">
+                            <div class="flex justify-between">
+                                <span>Senin - Jumat</span>
+                                <span>08:00 - 17:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sabtu</span>
+                                <span>08:00 - 14:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Minggu</span>
+                                <span>Tutup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-white">Kontak Cepat</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <button
+                                id="whatsapp-button"
+                                class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 focus:ring-offset-background"
+                            >
+                                💬 Chat WhatsApp
+                            </button>
+                            <button
+                                id="email-button"
+                                class="w-full inline-flex items-center justify-center px-6 py-3 border border-gray-700 text-base font-medium rounded-md shadow-sm text-primary bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background"
+                            >
+                                📧 Kirim Email
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-secondary mb-6">Lokasi Kami</h2>
+                        
+                        <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                            <div class="flex items-start">
+                                <span class="text-primary mr-3 mt-1 flex-shrink-0 text-2xl">📍</span>
+                                <div>
+                                    <h3 class="font-semibold text-white mb-2">Alamat Lengkap</h3>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        Jl. Industri Raya No. 123<br />
+                                        Kelurahan Industri, Kecamatan Konveksi<br />
+                                        Jakarta Timur 13250<br />
+                                        DKI Jakarta, Indonesia
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative h-64 lg:h-96 bg-gray-700 rounded-xl overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d107.6191!3d-6.9175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsyjMTknMzMuMCJTIDEwN8KwMzcnMDkuMCJF!5e0!3m2!1sen!2sid!4v1678888888888"
+                                width="100%"
+                                height="100%"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Lokasi Temu Konveksi"
+                            ></iframe>
+                        </div>
+                    </div>
+
+                    <div class="bg-primary/10 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Informasi Tambahan</h3>
+                        <div class="space-y-3 text-gray-300">
+                            <p class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Parkir luas tersedia untuk kendaraan pribadi dan truk pengiriman
+                            </p>
+                            <p class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Showroom produk tersedia untuk melihat sample langsung
+                            </p>
+                            <p class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Konsultasi gratis untuk menentukan produk yang sesuai
+                            </p>
+                            <p class="flex items-start">
+                                <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                Layanan antar jemput untuk wilayah Jabodetabek
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-4">Pertanyaan Umum</h2>
+                    <p class="text-lg text-gray-300">Jawaban untuk pertanyaan yang sering diajukan</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h4 class="font-semibold text-white mb-2">Berapa minimum order?</h4>
+                            <p class="text-gray-300">Minimum order tergantung jenis produk, mulai dari 10 pcs untuk beberapa item tertentu.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h4 class="font-semibold text-white mb-2">Berapa lama proses produksi?</h4>
+                            <p class="text-gray-300">Waktu produksi 7-14 hari kerja tergantung kompleksitas dan jumlah order.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h4 class="font-semibold text-white mb-2">Apakah bisa custom design?</h4>
+                            <p class="text-gray-300">Ya, kami menerima custom design sesuai dengan kebutuhan dan preferensi Anda.</p>
+                        </div>
+
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <h4 class="font-semibold text-white mb-2">Bagaimana sistem pembayaran?</h4>
+                            <p class="text-gray-300">Pembayaran bisa transfer bank, cash, atau cicilan sesuai kesepakatan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button
+        id="whatsappFloatButton"
+        class="whatsapp-float-button"
+        aria-label="Chat WhatsApp"
+    >
+        <span class="whatsapp-icon">💬</span>
+    </button>
+
+    <footer class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <div class="lg:col-span-2 space-y-4">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">Temu Konveksi</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Solusi terpercaya untuk kebutuhan konveksi Anda. Dengan pengalaman lebih dari 
+                        10 tahun, kami memberikan kualitas terbaik dengan harga yang kompetitif.
+                    </p>
+                </div>
+                
+                <div class="space-y-2 text-gray-300">
+                    <div class="flex items-center">
+                        <span class="mr-2 flex-shrink-0">📍</span>
+                        <span class="text-sm">
+                            Jl. Industri Raya No. 123, Jakarta Timur 13250
+                        </span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="mr-2 flex-shrink-0">💬</span>
+                        <span class="text-sm">+62 812-3456-789</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="mr-2 flex-shrink-0">📧</span>
+                        <span class="text-sm">info@temukonveksi.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
+                <nav class="space-y-2">
+                    <button onclick="document.querySelector('#dashboard').scrollIntoView({ behavior: 'smooth' });" class="block text-gray-300 hover:text-primary transition-colors text-left">Dashboard</button>
+                    <button onclick="document.querySelector('#tentang').scrollIntoView({ behavior: 'smooth' });" class="block text-gray-300 hover:text-primary transition-colors text-left">Tentang</button>
+                    <button onclick="document.querySelector('#product').scrollIntoView({ behavior: 'smooth' });" class="block text-gray-300 hover:text-primary transition-colors text-left">Product</button>
+                    <button onclick="document.querySelector('#profile').scrollIntoView({ behavior: 'smooth' });" class="block text-gray-300 hover:text-primary transition-colors text-left">Profile</button>
+                    <button onclick="document.querySelector('#kontak').scrollIntoView({ behavior: 'smooth' });" class="block text-gray-300 hover:text-primary transition-colors text-left">Kontak</button>
+                </nav>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Layanan Utama</h4>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>Seragam Kerja</li>
+                    <li>Seragam Sekolah</li>
+                    <li>Safety Equipment</li>
+                    <li>Merchandise Custom</li>
+                    <li>Bordir & Sablon</li>
+                    <li>CMT Services</li>
+                </ul>
+
+                <div class="mt-6">
+                    <h5 class="font-semibold mb-3">Ikuti Kami</h5>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer" class="text-green-500 hover:text-green-400 transition-colors" aria-label="WhatsApp">
+                            <span style="font-size: 1.25rem;">📱</span>
+                        </a>
+                        <a href="mailto:info@temukonveksi.com" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-400 transition-colors" aria-label="Email">
+                            <span style="font-size: 1.25rem;">📧</span>
+                        </a>
+                        <a href="https://instagram.com/temukonveksi" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/70 transition-colors" aria-label="Instagram">
+                            <span style="font-size: 1.25rem;">📸</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 my-8"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="text-gray-400 text-sm">
+                © <span id="current-year">2025</span> Temu Konveksi. Semua hak cipta dilindungi.
+            </div>
+            
+            <div class="flex space-x-6 text-sm text-gray-400">
+                <button onclick="document.querySelector('#tentang').scrollIntoView({ behavior: 'smooth' });" class="hover:text-white transition-colors">
+                    Tentang Kami
+                </button>
+                <button onclick="document.querySelector('#kontak').scrollIntoView({ behavior: 'smooth' });" class="hover:text-white transition-colors">
+                    Kontak
+                </button>
+                <span>Kebijakan Privasi</span>
+            </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-gray-800">
+                <div class="text-center text-gray-400">
+                    <span class="font-semibold">Area Layanan:</span><br />
+                    Jabodetabek & Seluruh Indonesia<br />
+                    (Pengiriman tersedia)
+                </div>
+            </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
