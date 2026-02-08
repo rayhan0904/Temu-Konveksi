@@ -71,11 +71,10 @@ let isMenuOpen = false;
 let currentSection = 'dashboard';
 
 // Kelas Navigasi
-const ACTIVE_DESKTOP_CLASSES = ['bg-secondary', 'text-white', 'shadow-md'];
-const DEFAULT_DESKTOP_CLASSES = ['text-gray-700', 'hover:bg-gray-100', 'hover:text-secondary'];
-const ACTIVE_MOBILE_CLASSES = ['bg-secondary', 'text-white', 'shadow-md'];
-const DEFAULT_MOBILE_CLASSES = ['text-gray-700', 'hover:bg-gray-50', 'hover:text-secondary'];
-
+const ACTIVE_DESKTOP_CLASSES = ['bg-gray-700', 'text-cyan-400', 'shadow-none'];
+const DEFAULT_DESKTOP_CLASSES = ['text-gray-300', 'hover:bg-gray-700', 'hover:text-cyan-400']; 
+const ACTIVE_MOBILE_CLASSES = ['bg-gray-700', 'text-cyan-400', 'shadow-none'];
+const DEFAULT_MOBILE_CLASSES = ['text-gray-300', 'hover:bg-gray-700', 'hover:text-cyan-400'];
 // --- Fungsi Navigasi ---
 const updateNavStyles = (sectionId) => {
     navLinks.forEach(link => {
